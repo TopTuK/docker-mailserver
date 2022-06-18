@@ -1,0 +1,5 @@
+make: Entering directory `/Users/sergeysidorov/Documents/dev/pmi_moscow/docker-mailserver'
+cp .env.dist .env
+bin/production.sh up -d
+make: Leaving directory `/Users/sergeysidorov/Documents/dev/pmi_moscow/docker-mailserver'
+ 

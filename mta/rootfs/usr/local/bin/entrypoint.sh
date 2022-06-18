@@ -15,6 +15,19 @@ fi
 if [ "${RELAYHOST}" != "false" ]
 then
   postconf relayhost=${RELAYHOST}
+  if [ "${RELAY_PASSWD_KEY}" != "false" ]
+  then
+    postconf smtp_sasl_auth_enable=yes
+    postconf smtp_sasl_password_maps=static:${RELAY_PASSWD_KEY}
+    postconf smtp_sasl_security_options=${RELAY_OPTIONS}
+    postconf smtp_tls_security_level=may
+    postconf smtp_use_tls=yes
+    postconf smtp_tls_CAfile=/etc/ssl/certs/ca-certificates.crt
+    if [ "${HEADER_SIZE_LIMIT}" != "false" ]
+    then
+      postconf header_size_limit=${HEADER_SIZE_LIMIT}
+    fi
+  fi
 fi
 
 dockerize \

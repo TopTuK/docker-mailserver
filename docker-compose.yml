@@ -3,12 +3,12 @@ version: '3.5'
 services:
   # Creates self signed tls certificates. Remove if you
   # use your own.
-  ssl:
-    image: jeboehm/mailserver-ssl:latest
-    build: ./ssl
-    env_file: .env
-    volumes:
-      - data-tls:/media/tls:rw
+  #ssl:
+    #image: jeboehm/mailserver-ssl:latest
+    #build: ./ssl
+    #env_file: .env
+    #volumes:
+      #- data-tls:/media/tls:rw
 
   # Responsible for storing users and their aliases. Remove
   # if you already have a MySQL server.
@@ -28,11 +28,10 @@ services:
     restart: on-failure:5
     env_file: .env
     volumes:
-      - data-tls:/media/tls:ro
-      # For using external certificates uncomment the following lines
-      # and change the path on the left side of the colon.
-      # - /home/user/certs/mail.example.com.crt:/media/tls/mailserver.crt:ro
-      # - /home/user/certs/mail.example.com.key:/media/tls/mailserver.key:ro
+      # Using own external certificates
+      #- data-tls:/media/tls:ro
+      - ./certs/mail.pmi.moscow.crt:/media/tls/mailserver.crt:ro
+      - ./certs/mail.pmi.moscow.key:/media/tls/mailserver.key:ro
 
   # The Mail Delivery Agent (Dovecot) is responsible for storing
   # incoming mail into a users mailbox and also delivers them
@@ -44,11 +43,10 @@ services:
     env_file: .env
     volumes:
       - data-mail:/var/vmail
-      - data-tls:/media/tls:ro
-      # For using external certificates uncomment the following lines
-      # and change the path on the left side of the colon.
-      # - /home/user/certs/mail.example.com.crt:/media/tls/mailserver.crt:ro
-      # - /home/user/certs/mail.example.com.key:/media/tls/mailserver.key:ro
+      # Using own external certificates
+      #- data-tls:/media/tls:ro
+      - ./certs/mail.pmi.moscow.crt:/media/tls/mailserver.crt:ro
+      - ./certs/mail.pmi.moscow.key:/media/tls/mailserver.key:ro
 
   # The admin (mailserver-admin) and webmail (roundcube) interfaces
   # live here. Can be removed if not needed.
@@ -64,8 +62,8 @@ services:
     volumes:
       - data-dkim:/media/dkim
     # For use with jwilder/nginx-proxy.
-    # environment:
-    #   - VIRTUAL_HOST=mail.example.com
+    environment:
+      - VIRTUAL_HOST=mail.pmi.moscow
 
   # Incoming spam is (hopefully) filtered by rspamd which runs
   # in this service.
@@ -121,7 +119,7 @@ volumes:
   data-db:
   data-dkim:
   data-mail:
-  data-tls:
+  #data-tls:
   data-filter:
   data-virusdb:
   data-redis:
