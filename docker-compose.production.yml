@@ -15,6 +15,7 @@ services:
     # Uncomment to use SSL encrypted mail submission
     #  - "0.0.0.0:465:465"
 
-  #web:
-    #ports:
-      #- "0.0.0.0:81:80"
+  # Remove this block if you are using jwilder/nginx-proxy reverse proxy
+  web:
+    ports:
+      - "0.0.0.0:81:80"

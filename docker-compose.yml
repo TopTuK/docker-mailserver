@@ -1,14 +1,14 @@
 version: '3.5'
 
 services:
-  # Creates self signed tls certificates. Remove if you
-  # use your own.
-  #ssl:
-    #image: jeboehm/mailserver-ssl:latest
-    #build: ./ssl
-    #env_file: .env
-    #volumes:
-      #- data-tls:/media/tls:rw
+  # Creates self signed tls certificates. Remove block if you use your own.
+  # If you use your own certificates you should remove all data-tls referenses
+  ssl:
+    image: jeboehm/mailserver-ssl:latest
+    build: ./ssl
+    env_file: .env
+    volumes:
+      - data-tls:/media/tls:rw
 
   # Responsible for storing users and their aliases. Remove
   # if you already have a MySQL server.
@@ -28,10 +28,11 @@ services:
     restart: on-failure:5
     env_file: .env
     volumes:
-      # Using own external certificates
-      #- data-tls:/media/tls:ro
-      - ./certs/mail.pmi.moscow.crt:/media/tls/mailserver.crt:ro
-      - ./certs/mail.pmi.moscow.key:/media/tls/mailserver.key:ro
+      # Remove line below if your own certificates
+      - data-tls:/media/tls:ro
+      # Uncomment lines below and change left part for using your own certificates
+      #- ./certs/mail.pmi.moscow.crt:/media/tls/mailserver.crt:ro
+      #- ./certs/mail.pmi.moscow.key:/media/tls/mailserver.key:ro
 
   # The Mail Delivery Agent (Dovecot) is responsible for storing
   # incoming mail into a users mailbox and also delivers them
@@ -43,10 +44,11 @@ services:
     env_file: .env
     volumes:
       - data-mail:/var/vmail
-      # Using own external certificates
-      #- data-tls:/media/tls:ro
-      - ./certs/mail.pmi.moscow.crt:/media/tls/mailserver.crt:ro
-      - ./certs/mail.pmi.moscow.key:/media/tls/mailserver.key:ro
+      # Remove line below if your own certificates
+      - data-tls:/media/tls:ro
+      # Uncomment lines below and change left part for using your own certificates
+      #- ./certs/domain.crt:/media/tls/mailserver.crt:ro
+      #- ./certs/domain.key:/media/tls/mailserver.key:ro
 
   # The admin (mailserver-admin) and webmail (roundcube) interfaces
   # live here. Can be removed if not needed.
@@ -61,12 +63,11 @@ services:
     env_file: .env
     volumes:
       - data-dkim:/media/dkim
-    # For use with jwilder/nginx-proxy.
-    environment:
-      - VIRTUAL_HOST=mail.pmi.moscow
+    # For use with jwilder/nginx-proxy. Uncomment this if you are using jwilder/nginx-proxy
+    #environment:
+      #- VIRTUAL_HOST=mail.pmi.moscow
 
-  # Incoming spam is (hopefully) filtered by rspamd which runs
-  # in this service.
+  # Incoming spam is (hopefully) filtered by rspamd which runs in this service.
   filter:
     image: jeboehm/mailserver-filter:latest
     build: ./filter
@@ -78,8 +79,7 @@ services:
     links:
       - virus:virus.local
 
-  # Incoming viruses or malware is detected and rejected by
-  # this service. Can be removed if FILTER_VIRUS is set to false.
+  # Incoming viruses or malware is detected and rejected by this service. Can be removed if FILTER_VIRUS is set to false.
   virus:
     image: jeboehm/mailserver-virus:latest
     build: ./virus
@@ -119,7 +119,8 @@ volumes:
   data-db:
   data-dkim:
   data-mail:
-  #data-tls:
+  # Comment line below if you are using your own certificates
+  data-tls:
   data-filter:
   data-virusdb:
   data-redis:

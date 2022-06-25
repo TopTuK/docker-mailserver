@@ -1,6 +1,9 @@
 name: Lint Dockerfiles
 
 on:
+  push:
+    paths:
+      - '**/Dockerfile'
   pull_request:
     paths:
       - '**/Dockerfile'
