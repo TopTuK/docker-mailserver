@@ -13,7 +13,7 @@ jobs:
         BUILD_CASE: 
           - virus_disabled
           - virus_enabled
-          - relayhost
+          #- relayhost
           - fts_disabled
 
     steps:
