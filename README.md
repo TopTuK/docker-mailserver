@@ -1,20 +1,19 @@
-docker-mailserver
+docker-mailserver with support of relay hosts
 =================
 
-Docker Mailserver based on the famous [ISPMail guide](https://workaround.org/ispmail/).
-All images are based on [Alpine Linux](https://alpinelinux.org) and are so small as possible.
-
-[Changelog](https://github.com/jeboehm/docker-mailserver/releases)
+Docker Mailserver is a fork of [Jeboehm Docker Mailserver](https://github.com/jeboehm/docker-mailserver) project.
+Docker Mailserver is greate project to server producttion mail server on your host! It's based on the famous [ISPMail guide](https://workaround.org/ispmail/) and all images based on [Alpine Linux](https://alpinelinux.org). It's so small as possible :)
 
 Build status
 ------------
+TODO: Make my own build statuses
+
 ![Lint YAMLs and Dockerfiles](https://github.com/jeboehm/docker-mailserver/workflows/Lint%20YAMLs%20and%20Dockerfiles/badge.svg)
 ![Integration Tests](https://github.com/jeboehm/docker-mailserver/workflows/Integration%20Tests/badge.svg)
 ![Build unofficial-sigs](https://github.com/jeboehm/docker-mailserver/workflows/Build%20unofficial-sigs/badge.svg)
 
 Features
 --------
-
 - POP3, IMAP, SMTP with user authentication
 - TLS enforced
 - Webmail interface
@@ -35,72 +34,3 @@ Features
 - Permanent self testing by Docker's healthcheck feature
 - Developed with high quality assurance standards
 - Address extension (-)
-
-Installation (basic setup)
---------------------------
-
-1. Run ```git clone git@github.com:jeboehm/docker-mailserver.git```
-2. Copy the file `.env.dist` to `.env` and change the variables in it according to your needs.
-   The variables are described in the [Wiki](https://github.com/jeboehm/docker-mailserver/wiki/Configuration-variables).
-3. Run ```bin/production.sh pull``` to download the images.
-4. Run ```bin/production.sh up -d``` to start the services.
-5. After a few seconds you can access the services listed in the paragraph [Services](#Services).
-6. Create your first email address and an admin user by running ```bin/production.sh run --rm web setup.sh```.
-   The wizard will ask you a few questions to set everything up.
-8. Now you can login to the management interface with your new account credentials.
-
-Screenshots
------------
-
-### Manage users
-
-![User overview](https://raw.githubusercontent.com/jeboehm/mailserver-admin/master/.github/screenshots/user.png)
-
-### Manage aliases
-
-![Alias overview](https://raw.githubusercontent.com/jeboehm/mailserver-admin/master/.github/screenshots/alias.png)
-
-### DKIM setup
-
-![DKIM setup](https://raw.githubusercontent.com/jeboehm/mailserver-admin/master/.github/screenshots/dkim_edit.png)
-
-Documentation
--------------
-
-- [Configuration](https://github.com/jeboehm/docker-mailserver/wiki/Configuration-variables)
-- Advanced setup:
-  - [Use own TLS certficates](https://github.com/jeboehm/docker-mailserver/wiki/Howto:-Use-Your-Own-TLS-Certificates)
-  - [Use another MySQL instance](https://github.com/jeboehm/docker-mailserver/wiki/Howto:-Use-Another-MySQL-Instance)
-  - [Use the web service behind nginx-proxy](https://github.com/jeboehm/docker-mailserver/wiki/Howto:-Use-The-Web-Service-Behind-nginx-proxy)
-  - [Container health monitoring](https://github.com/jeboehm/docker-mailserver/wiki/Howto:-Container-Health-Monitoring)
-  - [Disable malware scanning](https://github.com/jeboehm/docker-mailserver/wiki/Howto:-Disable-Malware-Scanning)
-  - [Advanced malware signatures](https://github.com/jeboehm/docker-mailserver/wiki/Howto:-Advanced-Malware-Signatures)
-  - [Use an external mail relay](https://github.com/jeboehm/docker-mailserver/wiki/Howto:-Use-External-Mail-Relay-For-Sending-Mails)
-  - [Add plugins to Roundcube](https://github.com/jeboehm/docker-mailserver/wiki/Howto:-Add-Plugins-To-Roundcube-Webmail)
-- Features:
-  - [Local address extension](https://github.com/jeboehm/docker-mailserver/wiki/Feature:-Local-Address-Extension)
-  - [Sender policy framework, SPF](https://github.com/jeboehm/docker-mailserver/wiki/Feature:-Sender-Policy-Framework-(SPF))
-  - [DKIM](https://github.com/jeboehm/docker-mailserver/wiki/Feature:-DKIM)
-- Technical details:
-  - [Data storage](https://github.com/jeboehm/docker-mailserver/wiki/Info:-Volume-Management-(Where-Is-My-Data%3F))
-  - [Filtering](https://github.com/jeboehm/docker-mailserver/wiki/Info:-Mail-Filtering)
-  - [Component overview](https://github.com/jeboehm/docker-mailserver/wiki/Info:-Component-Overview)
-  - [DockerHub images](https://github.com/jeboehm/docker-mailserver/wiki/Info:-Images-On-DockerHub)
-- [Upgrading](https://github.com/jeboehm/docker-mailserver/wiki/Upgrading)
-- [Troubleshooting](https://github.com/jeboehm/docker-mailserver/wiki/Troubleshooting)
-
-Services
---------
-
-| Service                                    | Address                      |
-| ------------------------------------------ | ---------------------------- |
-| POP3 (starttls needed)                     | 127.0.0.1:110                |
-| POP3S                                      | 127.0.0.1:995                |
-| IMAP (starttls needed)                     | 127.0.0.1:143                |
-| IMAPS                                      | 127.0.0.1:993                |
-| SMTP                                       | 127.0.0.1:25                 |
-| Mail Submission (starttls needed)          | 127.0.0.1:587                |
-| Mail Submission (SSL, disabled by default) | 127.0.0.1:465                |
-| Management Interface                       | http://127.0.0.1:81/manager/ |
-| Webmail                                    | http://127.0.0.1:81/webmail/ |
-| Rspamd Webinterface                        | http://127.0.0.1:81/rspamd/  |
