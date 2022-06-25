@@ -1,1 +1,1 @@
-{"buildTargets":[".env","build","clean","fixtures","lint","lint-dockerfile","lint-yaml","logs","prod","pull","setup","test","unofficial-sigs","up"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":[".env","build","clean","fixtures","lint","lint-dockerfile","lint-yaml","logs","make","prod","pull","setup","test","unofficial-sigs","up"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

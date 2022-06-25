@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Sun Jun 19 00:37:42 2022
+# Make data base, printed on Sat Jun 25 19:29:37 2022
 
 # Variables
 
@@ -27,7 +24,6 @@ VSCODE_LOG_NATIVE = false
 # automatic
 @F = $(notdir $@)
 # makefile
- 
 CURDIR := /Users/sergeysidorov/Documents/dev/pmi_moscow/docker-mailserver
 # makefile
 SHELL = /bin/sh
@@ -42,7 +38,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/px/8ppbyb4x0v79nw_flv_vq3q00000gn/T/vscode-ipc-74fdfe4c-f444-433f-9dea-23dfd9ae73cb.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/px/8ppbyb4x0v79nw_flv_vq3q00000gn/T/vscode-ipc-52fa3233-c4f0-45e1-890b-5386583a1fbf.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -56,7 +52,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.lLWjcf3xbp/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9rnGLJqICb/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -142,7 +138,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 18340
+VSCODE_PID = 11651
 # variable set hash-table stats:
 # Load=64/1024=6%, Rehash=0, Collisions=1/88=1%
 
@@ -152,9 +148,9 @@ VSCODE_PID = 18340
 
 # Directories
 
-# . (device 16777220, inode 12886949194): 24 files, no impossibilities.
+# . (device 16777220, inode 12887299646): 25 files, no impossibilities.
 
-# 24 files, no impossibilities in 1 directories.
+# 25 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -193,7 +189,6 @@ up: .env
 #  commands to execute (from `Makefile', line 38):
 	$(COMPOSE_PRODUCTION) up -d
 	
- 
 
 # Not a target:
 .SUFFIXES:
@@ -210,7 +205,7 @@ prod: up
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-19 00:36:33
+#  Last modified 2022-06-25 19:29:28
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -288,6 +283,9 @@ fixtures:
 	$(COMPOSE_PRODUCTION) run --rm web /usr/local/bin/fixtures.sh /opt/manager/bin/console user:add --password=test1234 --enable --quota=1 quota example.com
 	$(COMPOSE_PRODUCTION) run --rm web /usr/local/bin/fixtures.sh /opt/manager/bin/console user:add --password=test1234 disabled example.com
 	$(COMPOSE_PRODUCTION) run --rm web /usr/local/bin/fixtures.sh /opt/manager/bin/console user:add --password=test1234 --sendonly disabledsendonly example.com
+ 
+make: *** No rule to make target `all'.  Stop.
+
 	$(COMPOSE_PRODUCTION) run --rm web /usr/local/bin/fixtures.sh /opt/manager/bin/console alias:add foo@example.com admin@example.com
 	$(COMPOSE_PRODUCTION) run --rm web /usr/local/bin/fixtures.sh /opt/manager/bin/console alias:add foo@example.org admin@example.com
 	$(COMPOSE_PRODUCTION) run --rm web /usr/local/bin/fixtures.sh /opt/manager/bin/console alias:add --catchall @example.com admin@example.com
@@ -346,6 +344,6 @@ lint: lint-dockerfile lint-yaml
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Jun 19 00:37:42 2022
+# Finished Make data base on Sat Jun 25 19:29:37 2022
 
  
