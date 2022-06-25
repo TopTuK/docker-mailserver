@@ -1,4 +1,4 @@
-docker-mailserver with support of relay hosts
+Docker-Mailserver with support of relay hosts
 =================
 
 Docker Mailserver is a fork of [Jeboehm Docker Mailserver](https://github.com/jeboehm/docker-mailserver) project.
@@ -6,11 +6,9 @@ Docker Mailserver is greate project to server producttion mail server on your ho
 
 Build status
 ------------
-TODO: Make my own build statuses
-
-![Lint YAMLs and Dockerfiles](https://github.com/jeboehm/docker-mailserver/workflows/Lint%20YAMLs%20and%20Dockerfiles/badge.svg)
-![Integration Tests](https://github.com/jeboehm/docker-mailserver/workflows/Integration%20Tests/badge.svg)
-![Build unofficial-sigs](https://github.com/jeboehm/docker-mailserver/workflows/Build%20unofficial-sigs/badge.svg)
+[![Integration Tests](https://github.com/TopTuK/docker-mailserver/actions/workflows/integration-tests.yml/badge.svg)](https://github.com/TopTuK/docker-mailserver/actions/workflows/integration-tests.yml)
+[![Lint Dockerfiles](https://github.com/TopTuK/docker-mailserver/actions/workflows/lint-dockerfile.yml/badge.svg)](https://github.com/TopTuK/docker-mailserver/actions/workflows/lint-dockerfile.yml)
+[![Lint YAMLs](https://github.com/TopTuK/docker-mailserver/actions/workflows/lint-yaml.yml/badge.svg)](https://github.com/TopTuK/docker-mailserver/actions/workflows/lint-yaml.yml)
 
 Features
 --------
