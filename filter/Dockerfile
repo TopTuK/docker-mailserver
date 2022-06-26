@@ -24,14 +24,14 @@ RUN apk --no-cache add \
       /etc/rspamd/override.d/redis.conf \
       /etc/rspamd/local.d/worker-controller.inc && \
     touch \
-      /etc/rspamd/local.d/maps.d/local_bl_domain.inc \
-      /etc/rspamd/local.d/maps.d/local_bl_from.inc \
-      /etc/rspamd/local.d/maps.d/local_bl_ip.inc \
-      /etc/rspamd/local.d/maps.d/local_bl_rcpt.inc \
-      /etc/rspamd/local.d/maps.d/local_wl_domain.inc \
-      /etc/rspamd/local.d/maps.d/local_wl_from.inc \
-      /etc/rspamd/local.d/maps.d/local_wl_ip.inc \
-      /etc/rspamd/local.d/maps.d/local_wl_rcpt.inc && \
+      /etc/rspamd/local.d/local_bl_domain.inc \
+      /etc/rspamd/local.d/local_bl_from.inc \
+      /etc/rspamd/local.d/local_bl_ip.inc \
+      /etc/rspamd/local.d/local_bl_rcpt.inc \
+      /etc/rspamd/local.d/local_wl_domain.inc \
+      /etc/rspamd/local.d/local_wl_from.inc \
+      /etc/rspamd/local.d/local_wl_ip.inc \
+      /etc/rspamd/local.d/local_wl_rcpt.inc && \
     chown -R rspamd \
       /run/rspamd \
       /var/lib/rspamd \
@@ -39,15 +39,14 @@ RUN apk --no-cache add \
       /etc/rspamd/local.d/classifier-bayes.conf \
       /etc/rspamd/override.d/redis.conf \
       /etc/rspamd/local.d/worker-controller.inc \
-      /etc/rspamd/local.d/maps.d \
-      /etc/rspamd/local.d/maps.d/local_bl_domain.inc \
-      /etc/rspamd/local.d/maps.d/local_bl_from.inc \
-      /etc/rspamd/local.d/maps.d/local_bl_ip.inc \
-      /etc/rspamd/local.d/maps.d/local_bl_rcpt.inc \
-      /etc/rspamd/local.d/maps.d/local_wl_domain.inc \
-      /etc/rspamd/local.d/maps.d/local_wl_from.inc \
-      /etc/rspamd/local.d/maps.d/local_wl_ip.inc \
-      /etc/rspamd/local.d/maps.d/local_wl_rcpt.inc && \
+      /etc/rspamd/local.d/local_bl_domain.inc \
+      /etc/rspamd/local.d/local_bl_from.inc \
+      /etc/rspamd/local.d/local_bl_ip.inc \
+      /etc/rspamd/local.d/local_bl_rcpt.inc \
+      /etc/rspamd/local.d/local_wl_domain.inc \
+      /etc/rspamd/local.d/local_wl_from.inc \
+      /etc/rspamd/local.d/local_wl_ip.inc \
+      /etc/rspamd/local.d/local_wl_rcpt.inc && \
     apk --no-cache del \
       openssl
 

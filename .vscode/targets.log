@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Sat Jun 25 19:29:37 2022
+# Make data base, printed on Sun Jun 26 20:00:19 2022
 
 # Variables
 
@@ -38,7 +38,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/px/8ppbyb4x0v79nw_flv_vq3q00000gn/T/vscode-ipc-52fa3233-c4f0-45e1-890b-5386583a1fbf.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/px/8ppbyb4x0v79nw_flv_vq3q00000gn/T/vscode-ipc-76709393-fdad-4518-9af8-450855c5d89c.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -344,6 +344,6 @@ lint: lint-dockerfile lint-yaml
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Jun 25 19:29:37 2022
+# Finished Make data base on Sun Jun 26 20:00:19 2022
 
  
