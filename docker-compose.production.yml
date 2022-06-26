@@ -15,10 +15,13 @@ services:
     # Uncomment to use SSL encrypted mail submission
     #  - "0.0.0.0:465:465"
 
+  # Remove this block if you are using jwilder/nginx-proxy reverse proxy
   web:
-    # Remove this block if you are using jwilder/nginx-proxy reverse proxy
     ports:
       - "0.0.0.0:81:80"
-    # Setup network to connect for reverse proxy
-    # networks:
-      # - networkName
+
+# Uncomment next block if you use jwilder/nginx-proxy reverse proxy
+# networks:
+  # default:
+    # Set your network name
+    # name: mynetwork

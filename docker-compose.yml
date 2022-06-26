@@ -32,7 +32,7 @@ services:
       - data-tls:/media/tls:ro
       # Uncomment lines below and change left part for using your own certificates
       # - ./certs/domain.crt:/media/tls/mailserver.crt:ro
-      # - ./certs/domain.crt:/media/tls/mailserver.key:ro
+      # - ./certs/domain.key:/media/tls/mailserver.key:ro
 
   # The Mail Delivery Agent (Dovecot) is responsible for storing
   # incoming mail into a users mailbox and also delivers them
