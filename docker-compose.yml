@@ -31,8 +31,8 @@ services:
       # Remove line below if your own certificates
       - data-tls:/media/tls:ro
       # Uncomment lines below and change left part for using your own certificates
-      # - ./certs/mail.pmi.moscow.crt:/media/tls/mailserver.crt:ro
-      # - ./certs/mail.pmi.moscow.key:/media/tls/mailserver.key:ro
+      # - ./certs/domain.crt:/media/tls/mailserver.crt:ro
+      # - ./certs/domain.crt:/media/tls/mailserver.key:ro
 
   # The Mail Delivery Agent (Dovecot) is responsible for storing
   # incoming mail into a users mailbox and also delivers them
@@ -65,7 +65,7 @@ services:
       - data-dkim:/media/dkim
     # For use with jwilder/nginx-proxy. Uncomment this if you are using jwilder/nginx-proxy
     # environment:
-      # - VIRTUAL_HOST=mail.pmi.moscow
+      # - VIRTUAL_HOST=mailhost
 
   # Incoming spam is (hopefully) filtered by rspamd which runs in this service.
   filter:
