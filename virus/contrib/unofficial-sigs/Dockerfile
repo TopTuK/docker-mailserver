@@ -1,7 +1,7 @@
 FROM alpine:3.16
 
-LABEL maintainer="jeff@ressourcenkonflikt.de"
-LABEL vendor="https://github.com/jeboehm/docker-mailserver"
+LABEL maintainer="TopTuK"
+LABEL vendor="https://github.com/TopTuK/docker-mailserver"
 
 ARG SIGS_VER=7.2.5 # renovate: depName=extremeshok/clamav-unofficial-sigs
 
