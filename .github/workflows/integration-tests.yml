@@ -13,8 +13,8 @@ jobs:
         BUILD_CASE: 
           - virus_disabled
           - virus_enabled
-          #- relayhost
-          - fts_disabled
+          # - relayhost
+          # - fts_disabled
 
     steps:
       - uses: actions/checkout@v3

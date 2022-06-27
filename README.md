@@ -32,3 +32,18 @@ Features
 - Permanent self testing by Docker's healthcheck feature
 - Developed with high quality assurance standards
 - Address extension (-)
+
+Simple installation
+--------
+1. Run git clone https://github.com/TopTuK/docker-mailserver.git
+2. Copy the file .env.dist to .env and change the variables in it according to your needs.
+3. Run ./bin/production.sh pull to download the images.
+4. Run ./bin/production.sh build to build images.
+5. Run bin/production.sh up -d to start the services.
+After a few seconds you can access the services listed in the paragraph Services.
+6. Create your first email address and an admin user by running bin/production.sh run --rm web setup.sh. The wizard will ask you a few questions to set everything up.
+
+Now you can login to the management interface with your new account credentials.
+
+[RU]
+- Описание простой настройки описал тут: [ссылка](https://teletype.in/@toptuk/8IqqNLs9dst)
