@@ -2,7 +2,7 @@ Docker-Mailserver with support of relay hosts
 =================
 
 Docker Mailserver is a fork of [Jeboehm Docker Mailserver](https://github.com/jeboehm/docker-mailserver) project.
-Docker Mailserver is greate project to server producttion mail server on your host! It's based on the famous [ISPMail guide](https://workaround.org/ispmail/) and all images based on [Alpine Linux](https://alpinelinux.org). It's so small as possible :)
+Docker Mailserver is great project to server producttion mail server on your host! It's based on the famous [ISPMail guide](https://workaround.org/ispmail/) and all images based on [Alpine Linux](https://alpinelinux.org). It's so small as possible :)
 
 Build status
 ------------
@@ -39,11 +39,10 @@ Simple installation
 2. Copy the file .env.dist to .env and change the variables in it according to your needs.
 3. Run ./bin/production.sh pull to download the images.
 4. Run ./bin/production.sh build to build images.
-5. Run bin/production.sh up -d to start the services.
-After a few seconds you can access the services listed in the paragraph Services.
+5. Run bin/production.sh up -d to start the services. After a few seconds you can access the services.
 6. Create your first email address and an admin user by running bin/production.sh run --rm web setup.sh. The wizard will ask you a few questions to set everything up.
 
 Now you can login to the management interface with your new account credentials.
 
 [RU]
-- Описание простой настройки описал тут: [ссылка](https://teletype.in/@toptuk/8IqqNLs9dst)
+- Описание простой настройки: [ссылка](https://teletype.in/@toptuk/8IqqNLs9dst)
