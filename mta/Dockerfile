@@ -1,5 +1,5 @@
 FROM jwilder/dockerize:0.6.1 AS dockerize
-FROM alpine:3.16
+FROM alpine:3.10
 
 LABEL maintainer="jeff@ressourcenkonflikt.de"
 LABEL vendor="https://github.com/jeboehm/docker-mailserver"
@@ -24,7 +24,7 @@ ENV MAILNAME=mail.example.com \
 
 RUN apk --no-cache add \
       postfix-mysql \
-      postfix && \
+      postfix \
       supervisor \
       cyrus-sasl \
       cyrus-sasl-plain && \
